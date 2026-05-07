@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Diagrama de Classes" id="projeto-banco-diagrama">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="agencia" value="Agencia&#xa;----------------&#xa;Id: int&#xa;Numero: string&#xa;Nome: string&#xa;Endereco: string" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="240" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="cliente" value="Cliente (abstrata)&#xa;----------------&#xa;Id: int&#xa;Nome: string&#xa;Email: string&#xa;Telefone: string&#xa;AgenciaId: int" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="pf" value="PessoaFisica&#xa;----------------&#xa;Cpf: string&#xa;DataNascimento: DateTime&#xa;RendaMensal: decimal" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="410" width="250" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="pj" value="PessoaJuridica&#xa;----------------&#xa;Cnpj: string&#xa;RazaoSocial: string&#xa;FaturamentoMensal: decimal" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="410" width="280" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="contratacao" value="Contratacao&#xa;----------------&#xa;Id: int&#xa;ClienteId: int&#xa;ProdutoId: int&#xa;DataSolicitacao: DateTime&#xa;Status: StatusContratacao&#xa;ValorSolicitado: decimal&#xa;PrazoMeses: int&#xa;ScoreCalculado: int&#xa;TaxaJurosMensal: decimal&#xa;ValorParcela: decimal&#xa;Mensagem: string" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="80" width="300" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="produto" value="Produto (abstrata)&#xa;----------------&#xa;Id: int&#xa;Nome: string" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="120" width="240" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="emprestimo" value="Emprestimo&#xa;----------------&#xa;ValorMinimo: decimal&#xa;ValorMaximo: decimal&#xa;PrazoMaximoMeses: int" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="410" width="250" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="maquina" value="MaquinaDeCartao&#xa;----------------&#xa;TaxaMdrPadrao: decimal" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="410" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="salario" value="ReceberSalario&#xa;----------------&#xa;ConvenioEmpresa: string" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="620" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="status" value="StatusContratacao&#xa;----------------&#xa;Pendente&#xa;Aprovada&#xa;Reprovada&#xa;Falhou" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="460" width="220" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="agencia-cliente" value="1                         N" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="agencia" target="cliente">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cliente-contratacao" value="1                         N" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="cliente" target="contratacao">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="produto-contratacao" value="1                         N" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="produto" target="contratacao">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pf-heranca" value="" style="endArrow=block;endFill=0;html=1;rounded=0;" edge="1" parent="1" source="pf" target="cliente">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pj-heranca" value="" style="endArrow=block;endFill=0;html=1;rounded=0;" edge="1" parent="1" source="pj" target="cliente">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="emprestimo-heranca" value="" style="endArrow=block;endFill=0;html=1;rounded=0;" edge="1" parent="1" source="emprestimo" target="produto">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="maquina-heranca" value="" style="endArrow=block;endFill=0;html=1;rounded=0;" edge="1" parent="1" source="maquina" target="produto">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="salario-heranca" value="" style="endArrow=block;endFill=0;html=1;rounded=0;" edge="1" parent="1" source="salario" target="produto">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="contratacao-status" value="usa" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="contratacao" target="status">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

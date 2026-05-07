@@ -1,0 +1,36 @@
+@ProjetoBanco.Api_HostAddress = http://localhost:5263
+
+POST {{ProjetoBanco.Api_HostAddress}}/api/agencias
+Content-Type: application/json
+
+{
+  "numero": "0001",
+  "nome": "Agencia Paulista",
+  "endereco": "Avenida Paulista, 1000"
+}
+
+###
+
+POST {{ProjetoBanco.Api_HostAddress}}/api/clientes/pf
+Content-Type: application/json
+
+{
+  "nome": "Ana Silva",
+  "email": "ana@email.com",
+  "telefone": "11999999999",
+  "agenciaId": 1,
+  "cpf": "12345678901",
+  "dataNascimento": "1995-01-10",
+  "rendaMensal": 9000
+}
+
+###
+
+POST {{ProjetoBanco.Api_HostAddress}}/api/contratacoes
+Content-Type: application/json
+
+{
+  "clienteId": 1,
+  "valorSolicitado": 10000,
+  "prazoMeses": 24
+}
